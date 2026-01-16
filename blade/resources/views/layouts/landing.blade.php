@@ -10,6 +10,7 @@
     </title>
 </head>
 <body>
+    @include('layouts._partials.menu') {{--Directiva para incluir el menú en la landing --}}
     @yield('content') {{--Zonas definidas para poder inyectar contenido HTML --}}
 </body>
 </html>
