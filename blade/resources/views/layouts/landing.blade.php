@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         {{--  Directiva de blade con (@) para extender el contenido del html--}}
     <title>
-        @yield('title') {{--Zonas definidas para poder inyectar contenido HTML --}}
+        @yield('title') {{--Zonas definidas para poder inyectar contenido HTML del head titulo --}}
     </title>
 </head>
 <body>
