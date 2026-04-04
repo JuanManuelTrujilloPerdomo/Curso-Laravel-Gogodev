@@ -10,18 +10,8 @@
 
 <body>
     <h1>Users List:</h1>
-    @if ($users->isEmpty())
-        <p>The user list is empty</p>
-    @else
-        <ul>
-            {{--  Llamamos una directiva de blade que nos permite recorrer en este caso una estrctura de datos --}}
-            @foreach ($users as $user)
-                <li>{{ $user->name }}</li>
-            @endforeach
-        </ul>
-    @endif
 
-    {{-- Otra forma de hacer un if else --}}
+    {{--  Llamamos una directiva de blade que nos permite recorrer en este caso una estrctura de datos --}}
     @forelse($users as $user)
         <li>{{ $user->name }}</li>
     @empty
