@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->string('description', 225)->nullable(); // Quiere decir que puede ir Null
-            $table->date('deadline');
-            $table->boolean('done')->default(false); // Si no tiene un dato se asigna por defecto valor false
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('authors');
     }
 };
