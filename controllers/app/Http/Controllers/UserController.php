@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    // Utilizamos el ORM de Eloquent para el manejo y creación de los datos
     public function index()
     {
         // Este metodo me trae todos los registros

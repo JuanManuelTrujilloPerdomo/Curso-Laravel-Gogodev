@@ -13,7 +13,7 @@
 
     {{--  Llamamos una directiva de blade que nos permite recorrer en este caso una estrctura de datos --}}
     @forelse($users as $user)
-        <li>{{ $user->name }}</li>
+        <li>{{ $user->name }} -- {{ $user->age }} years old</li>
     @empty
         <p>The user list is empty</p>
     @endforelse
