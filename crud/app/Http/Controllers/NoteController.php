@@ -28,5 +28,26 @@ class NoteController extends Controller
         return view('note.create');
     }
 
+    public function store(Request $request)
+    {
+/*         // Opción 1 de guardar los datos
+        $note = new Note;
+        $note->title = $request->title;
+        $note->description = $request->description;
+        $note->save();
+
+        // Opción 2 de guardar los datos
+        Note::create([
+            'title' => $request->title,
+            'description' => $request->description
+
+        ]); */
+
+        // Opción 3 de guardar los datos utilizando todos los datos de la petión recepcionada
+        Note::create($request->all());
+
+        return redirect()->route('note-index');
+    }
+
 
 }
