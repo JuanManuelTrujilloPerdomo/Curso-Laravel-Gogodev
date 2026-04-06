@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+<a href="{{ route('note-create') }}">Create new note</a>
+    <ul>
+        @forelse($notes as $note)
+            <li><a href="#">{{ $note->title }}</a></li>
 
-<body>
-    <h1>El valor de la ruta es: {{ $id }}</h1>
-</body>
-
-</html>
+        @empty
+        <p>No data.</p>
+        @endforelse
+    </ul>
+@endsection
