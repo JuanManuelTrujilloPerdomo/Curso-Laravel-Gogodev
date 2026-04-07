@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('note-index') }}">Back</a>
-    <form method="POST" action="#">
+    <a href="{{ route('note-index') }}">Back</a>
+    <form method="POST" action="{{ route('note-update', $note->id) }}">
+        @method('PUT') {{-- De esta forma le especificamos al formulario que es un PUT y no POST --}}
         @csrf
         <label for="">Title:</label>
         <input type="text" name="title" value="{{ $note->title }}" />

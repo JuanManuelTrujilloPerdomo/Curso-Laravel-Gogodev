@@ -14,3 +14,12 @@ Route::post('/note/store', [NoteController::class, 'store'])->name('note-store')
 
 // Ruta para recibir y editar los registros de las notas desde un formulario
 Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note-edit');
+
+// Ruta para recibir y modificar los registros de las notas desde un formulario
+Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note-update');
+
+// Ruta para recibir y mostrar los registros de las notas desde un formulario
+Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note-show');
+
+// Ruta para recibir y borrar los registros de las notas desde un formulario
+Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note-destroy');
