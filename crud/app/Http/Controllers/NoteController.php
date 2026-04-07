@@ -49,5 +49,10 @@ class NoteController extends Controller
         return redirect()->route('note-index');
     }
 
+    public function edit(Note $note)
+    {
+        return view('note.edit', compact('note'));
+    }
+
 
 }

@@ -11,3 +11,6 @@ Route::get('/note/create', [NoteController::class, 'create'])->name('note-create
 
 // Ruta para recibir y enviar los registros de las notas desde un formulario
 Route::post('/note/store', [NoteController::class, 'store'])->name('note-store');
+
+// Ruta para recibir y editar los registros de las notas desde un formulario
+Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note-edit');
