@@ -33,6 +33,11 @@ class NoteController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        // Reglas de Validación de datos antes de ser insertados
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'description' => 'required|max:255|min:3'
+        ]);
         Note::create($request->all());
         return redirect()->route('note-index');
     }
@@ -44,6 +49,11 @@ class NoteController extends Controller
 
     public function update(Request $request, Note $note): RedirectResponse
     {
+        // Reglas de Validación de datos antes de ser insertados
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'description' => 'required|max:255|min:3'
+        ]);
         $note->update($request->all());
         return redirect()->route('note-index');
     }
