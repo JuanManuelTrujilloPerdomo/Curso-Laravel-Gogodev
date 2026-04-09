@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Http\Requests\NoteRequest;
 
 class NoteController extends Controller
 {
@@ -31,13 +32,8 @@ class NoteController extends Controller
         return view('note.create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(NoteRequest $request): RedirectResponse // Le decimos al controlador que espero un Noterequest ya con los datos validados
     {
-        // Reglas de Validación de datos antes de ser insertados
-        $request->validate([
-            'title' => 'required|max:255|min:3',
-            'description' => 'required|max:255|min:3'
-        ]);
         Note::create($request->all());
         return redirect()->route('note-index');
     }
@@ -47,13 +43,8 @@ class NoteController extends Controller
         return view('note.edit', compact('note'));
     }
 
-    public function update(Request $request, Note $note): RedirectResponse
+    public function update(NoteRequest $request, Note $note): RedirectResponse // Le decimos al controlador que espero un Noterequest ya con los datos validados
     {
-        // Reglas de Validación de datos antes de ser insertados
-        $request->validate([
-            'title' => 'required|max:255|min:3',
-            'description' => 'required|max:255|min:3'
-        ]);
         $note->update($request->all());
         return redirect()->route('note-index');
     }
