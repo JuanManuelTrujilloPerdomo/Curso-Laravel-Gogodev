@@ -6,10 +6,18 @@
         @method('PUT') {{-- De esta forma le especificamos al formulario que es un PUT y no POST --}}
         @csrf
         <label for="">Title:</label>
-        <input type="text" name="title" value="{{ $note->title }}" />
+        <input type="text" name="title" value="{{ $note->title }}" /> <br>
+        {{-- Mostramos un error o alert al usuario --}}
+        @error('title')
+            <p style="color: red;">{{ $message }}</p>
+        @enderror
 
         <label for="">Description</label>
-        <input type="text" name="description" value="{{ $note->description }}" />
+        <input type="text" name="description" value="{{ $note->description }}" /> <br>
+        {{-- Mostramos un error o alert al usuario --}}
+        @error('description')
+            <p style="color: red;">{{ $message }}</p>
+        @enderror
 
         <input type="submit" value="Update" />
     </form>

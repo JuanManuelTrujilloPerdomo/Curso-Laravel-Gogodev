@@ -35,7 +35,7 @@ class NoteController extends Controller
     public function store(NoteRequest $request): RedirectResponse // Le decimos al controlador que espero un Noterequest ya con los datos validados
     {
         Note::create($request->all());
-        return redirect()->route('note-index');
+        return redirect()->route('note-index')->with('success', 'Note creaded'); // Mensaje para cuando se o no registren datos.
     }
 
     public function edit(Note $note): view
@@ -46,7 +46,7 @@ class NoteController extends Controller
     public function update(NoteRequest $request, Note $note): RedirectResponse // Le decimos al controlador que espero un Noterequest ya con los datos validados
     {
         $note->update($request->all());
-        return redirect()->route('note-index');
+        return redirect()->route('note-index')->with('success', 'Note update'); // Mensaje cuando se o no registren datos.
     }
 
     public function show(Note $note): View
@@ -57,7 +57,7 @@ class NoteController extends Controller
         public function destroy(Note $note): RedirectResponse
     {
         $note->delete();
-        return redirect()->route('note-index');
+        return redirect()->route('note-index')->with('danger', 'Note delete'); // Mensaje de alert para cuando se o no registren datos.
     }
 
 }
