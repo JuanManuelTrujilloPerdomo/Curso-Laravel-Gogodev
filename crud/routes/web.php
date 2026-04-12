@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
 
+// Rutas realizadas de forma manual
+
 // Ruta recibe todas las notas disponibles
 Route::get('/note', [NoteController::class, 'index'])->name('note-index');
 
