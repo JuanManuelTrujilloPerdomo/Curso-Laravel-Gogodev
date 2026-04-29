@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PostController;
 
 // Rutas realizadas de forma manual
 
@@ -25,3 +26,8 @@ Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note-sho
 
 // Ruta para recibir y borrar los registros de las notas desde un formulario
 Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note-destroy');
+
+// Utilizamos Rute::resource para representar un CRUD, va a manejar todos los tipos (GET,POST,PUT,DELETE).
+Route::resource('/post', PostController::class);
+
+
